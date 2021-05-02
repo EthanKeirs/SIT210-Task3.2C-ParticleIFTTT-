@@ -10,11 +10,11 @@ void setup()
 void loop() 
 {
     int light_Level = digitalRead(light_Sensor); //assigns collected data as integer light_Level
-    if (light_Level > 0 & count >= 7200000)
+    if (light_Level > 0 & count <= 7200000)
     {
         
         Particle.publish("Terrarium is in sunlight. light_Level is ", String::format("%d", light_Level), PRIVATE); //publishes sorted data to thingspeak
-        for (light_Level > 0; count < 7200;)
+        for (light_Level > 0; count <= 7200000;)
         {
             delay(1000); //delay for 1 seconds
             count = count + 1;
